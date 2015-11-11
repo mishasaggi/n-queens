@@ -163,12 +163,21 @@
     //
     // test if a specific major diagonal on this board contains a conflict
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
-      return false; // fixme
+      //for row = i, col to check is same (symmetry in diagonals)
+      var n = this.get('n');
+      var count = 0;
+      var colIndex = majorDiagonalColumnIndexAtFirstRow;
+      count += this.get(majorDiagonalColumnIndexAtFirstRow)[colIndex];
+      return (count > 1) ? true: false;
     },
 
     // test if any major diagonals on this board contain conflicts
     hasAnyMajorDiagonalConflicts: function() {
-      return false; // fixme
+      var n = this.get('n');
+      for (var colIndex = 0; colIndex < n; colIndex++) {
+        if (this.hasMajorDiagonalConflictAt(colIndex)) return true;
+      }
+      return false;
     },
 
 
