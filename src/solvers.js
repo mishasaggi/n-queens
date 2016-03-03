@@ -17,6 +17,13 @@
 // of them can attack each other.
 window.countNRooksSolutions = function(n) {
   var solutionCount = undefined; // fixme
+  /*Algorithm - non recursive
+  //most basic solution would try to put rook on every square and  
+
+
+  Algorithm - recursive
+
+  */
 
   console.log('Number of solutions for ' + n + ' rooks:', solutionCount);
   return solutionCount;

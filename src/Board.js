@@ -3,7 +3,7 @@
 // 
 // Look over the other methods and write the helper functions futher
 // down in the file.
-
+var max_count = 0;
 (function() {
 
   window.Board = Backbone.Model.extend({
@@ -121,16 +121,21 @@
       var count = 0;
       for (var colIndex = 0; colIndex < n; colIndex ++) {
         count += this.get(rowIndex)[colIndex];
+        console.log("rowIndex: ", rowIndex, "columnIndex: ", colIndex , "count: ", count);
       }
+      if(count>1) console.log(true);
       return count > 1 ? true: false ;
     },
 
     // test if any rows on this board contain conflicts
     hasAnyRowConflicts: function() {
       var n = this.get('n');
+      max_count++;
+      console.log("is this function being called?")
       for (var rowIndex = 0; rowIndex < n; rowIndex++) {
         if (this.hasRowConflictAt(rowIndex)) return true;
       }
+      console.log("called: ", max_count);
       return false;
     },
 
